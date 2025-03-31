@@ -34,9 +34,19 @@ class _ImageBubble extends StatelessWidget {
     return ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: Image.network(
-            'https://yesno.wtf/assets/yes/4-c53643ecec77153eefb461e053fb4947.gif',
-            width: size.width * 0.7,
-            height: 150,
-            fit: BoxFit.cover));
+          'https://yesno.wtf/assets/yes/4-c53643ecec77153eefb461e053fb4947.gif',
+          width: size.width * 0.7,
+          height: 150,
+          fit: BoxFit.cover,
+          loadingBuilder: (context, child, loadingProgress) {
+            if (loadingProgress == null) return child;
+            return Container(
+              width: size.width * 0.7,
+              height: 150,
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              child: const Text("Cargando imagen..."),
+            );
+          },
+        ));
   }
 }
