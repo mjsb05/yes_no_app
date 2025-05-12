@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:yes_no_app/domain/entities/message.dart';
 
 class MyMessageBubble extends StatelessWidget {
-  const MyMessageBubble({super.key});
+  //variable de la identidad atómica
+  final Message message;
+  const MyMessageBubble({super.key, required this.message});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +16,8 @@ class MyMessageBubble extends StatelessWidget {
             color: colors.primary, borderRadius: BorderRadius.circular(20)),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: const Text('Velit ad ad sunt i',
-              style: TextStyle(color: Colors.white)),
+          child:
+              Text(message.text, style: const TextStyle(color: Colors.white)),
         ),
       ),
       const SizedBox(
