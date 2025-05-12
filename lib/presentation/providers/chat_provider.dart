@@ -13,6 +13,7 @@ class ChatProvider extends ChangeNotifier {
       return;
     }
     final newMessage = Message(text: text, fromWho: FromWho.me);
+    debugPrint("Flutter: Mensajes de la lista: ${messagesList.length}");
 
     messagesList.add(newMessage);
 
